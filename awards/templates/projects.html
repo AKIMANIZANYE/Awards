@@ -1,0 +1,62 @@
+{%extends 'all-photos/base.html'%}
+{% block content %} 
+{{block.super}}
+  
+  <div class="container" style="background:lightskyblue" >
+    <div class="jumbotron" style="background:lightseagreen">
+      <h1 style="color:burlywood;font-size: 30px" class="text-center">Photo Gallery</h1>
+      </div>
+    
+    <div class="row">
+        {% for project in projects %}
+       <div class="col-md-3">
+          <a href="" data-toggle="modal" data-target="#{{project.id}}">  <h4 class="modal-title text-center">{{project.name}}</h4> <img src="{{project.Instagram.url}}" class="img-responsive responsive img-holder" alt="Project"  ></a>
+
+            <div id="{{project.id}}" class="modal fade" role="dialog">
+               <div class="modal-dialog modal-lg modal-dialog-centered">
+
+                 <div class="modal-content">
+                  <div class="modal-header">
+             
+             
+                    <img src="{{project.project.url}}" alt="" id='myImg' height="450" width="600">
+                 </div>
+                 <div class="modal-body">
+             
+                   <h4 class="modal-title text-center">{{project.name}}</h4>
+              
+                   <p>name:{{project.name}}</p>
+                   <p> Description:{{project.description}} </p>
+                   <button class="btn btn-danger" onclick="copyUrl('{{[project].id}}-url')">Copy Project Url</button>
+                   <input class="form-control input-lg" type="text"  value="http://127.0.0.1:8000{{project.awards.url}}" id="{{project.id}}-url" >
+
+                 </div>
+          
+                   <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal"> skip</button>
+                   </div>
+                </div>
+      
+            </div>
+      </div>
+      <script type="text/javascript">
+        function copyUrl(element){
+          var myVar = document.getElementById(element);
+          myVar.select();
+          document.execCommand('copy');
+          alert("Copied the link of project: " + myVar.value);  
+        }
+      </script>
+      </div>
+
+     {% empty %}
+      <div class="row">
+       <h2 class="text-center"> there is no project</h2>
+      </div>
+     {% endfor %}
+
+
+ 
+    </div>
+  </div>
+{% endblock %}
