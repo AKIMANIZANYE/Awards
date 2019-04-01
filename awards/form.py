@@ -8,7 +8,7 @@ class ProjectsLetterForm(forms.Form):
 
 class NewProjectForm(forms.ModelForm):
     class Meta:
-        model = Image
+        model = Project
         exclude = ['user']
         # widgets = {
         #     'profile': forms.CheckboxSelectMultiple(),

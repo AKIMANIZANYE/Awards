@@ -1,0 +1,31 @@
+{%extends 'all-photos/base.html'%} 
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    {% if projects%}
+      <h2>Found {{ projects|length }} of searched term {{message}}</h2>
+    {% else %}
+      <h2> Found 0 project for the search term {{message}}</h2>
+    {% endif %}
+
+  </div>
+
+  <div class="row">
+
+  {% if projects %}
+    {% for image in projects %}
+      <div class="col-sm-6 col-md-3">
+          <h2 style="color:blueviolet;">{{project.name}}</h2>
+          <img src="{{project.project.url}}"  class="img-responsive" alt="">
+          <strong>Name:</strong> {{project.name}}
+          <br>
+          <strong>User:</strong>{{project.user}}
+          <br>
+          <strong>Description:</strong>{{project.caption}}
+      </div>
+    {% endfor %}
+  {% endif %}
+  </div>
+</div>
+{% endblock %}
