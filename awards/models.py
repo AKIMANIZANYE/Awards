@@ -1,26 +1,13 @@
 from django.db import models
 
 from django.contrib.auth.models import User
-# from tinymce.models import HTMLField
+from tinymce.models import HTMLField
 # from .models import Profile,Project,,Rating
 # from . forms import ProfileUploadForm,CommentForm,ProfileForm,ImageForm,ImageUploadForm
 from django.conf import settings
 
-class Profile(models.Model):
-   bio = models.CharField(max_length =30)
-   image = models.ImageField(upload_to='images/', blank=True)
-   contact = models.EmailField(max_length=80,null=True)
-#    Project= models.IntegerFlied(default=0)
 
 
-   def __str__(self):
-       return self.bio
-class tags(models.Model):
-   name = models.CharField(max_length =30)
-  
-
-   def __str__(self):
-       return self.name
 
 class Project(models.Model):
    title = models.CharField(max_length = 30,null = True)
@@ -28,8 +15,9 @@ class Project(models.Model):
    description = models.CharField(max_length = 100,null = True)
    link = models.CharField(max_length = 100,null = True)
    user = models.ForeignKey(User,null=True)
-   image = models.ForeignKey(Profile,null=True)
-   Project = models.CharField(upload_to='images/', blank=True)
+   image = models.CharField(upload_to='images/', blank=True)
+  
+  
 
    def __str__(self):
        return self.name
@@ -56,6 +44,25 @@ class Project(models.Model):
    def search_by_name(cls,search_term):
        projec = cls.objects.filter(name__icontains=search_term)
        return projec
+class Profile(models.Model):
+   username = models.CharField(default='User',max_length=80)
+   bio = models.CharField(max_length =30)
+   image = models.ImageField(upload_to='images/', blank=True)
+   contact = models.textField(null=True)
+   Project= models.IntegerFlied(default=0)
+   project = models.ForeignKey(Project,null=True)
+
+
+   def __str__(self):
+       return self.bio
+class tags(models.Model):
+   name = models.CharField(max_length =30)
+  
+
+   def __str__(self):
+       return self.name
+
+
 
 class PhotosLetterRecipients(models.Model):
    name = models.CharField(max_length = 30)
@@ -68,6 +75,7 @@ class Rating(models.Model):
        usability = models.IntegerFlied(default=0)
        content = models.IntegerFlied( default=0)
        Project = models.ForeignKey(Project,null=True)
+       Project = models.ForeignKey(Project,null=True,related_name='rating')
        user = models.ForeignKey(User,null=True)
        image = models.ForeignKey(Profile,nul= True)
       
