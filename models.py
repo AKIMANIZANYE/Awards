@@ -10,7 +10,7 @@ class Profile(models.Model):
     bio = models.CharField(max_length =30)
     image = models.ImageField(upload_to='images/', blank=True)
     contact = models.EmailField(max_length=80,null=True)
-    Project_id = models.IntegerFlied(default=0)
+    Project= models.IntegerFlied(default=0)
 
 
     def __str__(self):
@@ -23,7 +23,6 @@ class tags(models.Model):
         return self.name
 
 class Project(models.Model):
-    project_id = models.IntegerFlied(null=True)
     title = models.CharField(max_length = 30,null = True)
     landing = models.CharField(null = True)
     description = models.CharField(max_length = 100,null = True)
@@ -65,10 +64,10 @@ class PhotosLetterRecipients(models.Model):
 
 
 class Rating(models.Model):
-        design = models.CharField( null= True)
-        usability   = models.CharField(max-length = 90,null=True)
-        content = models.CharField( max-length = 90,null=True)
-        Project_id = models.ForeignKey(Project,null=True)
+        design = models.IntegerFlied( default=0)
+        usability = models.IntegerFlied(default=0)
+        content = models.IntegerFlied( default=0)
+        Project = models.ForeignKey(Project,null=True)
         user = models.ForeignKey(User,null=True)
         image = models.ForeignKey(Profile,nul= True)
         
