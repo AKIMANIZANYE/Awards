@@ -11,11 +11,11 @@ from django.conf import settings
 
 class Project(models.Model):
    title = models.CharField(max_length = 30,null = True)
-   landing = models.CharField(null = True)
+   landing = models.CharField( max_length = 20,null = True)
    description = models.CharField(max_length = 100,null = True)
    link = models.CharField(max_length = 100,null = True)
    user = models.ForeignKey(User,null=True)
-   image = models.CharField(upload_to='images/', blank=True)
+   image = models.ImageField(upload_to='images/', blank=True)
   
   
 
@@ -48,8 +48,8 @@ class Profile(models.Model):
    username = models.CharField(default='User',max_length=80)
    bio = models.CharField(max_length =30)
    image = models.ImageField(upload_to='images/', blank=True)
-   contact = models.textField(null=True)
-   Project= models.IntegerFlied(default=0)
+   contact = models.EmailField(null=True)
+#    Project= models.IntegerField(default=0)
    project = models.ForeignKey(Project,null=True)
 
 
@@ -70,14 +70,14 @@ class PhotosLetterRecipients(models.Model):
 
 
 
-class Rating(models.Model):
-       design = models.IntegerFlied( default=0)
-       usability = models.IntegerFlied(default=0)
-       content = models.IntegerFlied( default=0)
-       Project = models.ForeignKey(Project,null=True)
-       Project = models.ForeignKey(Project,null=True,related_name='rating')
+class Rating(models.Model): 
+       design = models.IntegerField( default=0)
+       usability = models.IntegerField(default=0)
+       content = models.IntegerField( default=0)
+       project = models.ForeignKey(Project,null=True)
+       project = models.ForeignKey(Project,null=True,related_name='rating')
        user = models.ForeignKey(User,null=True)
-       image = models.ForeignKey(Profile,nul= True)
+       image = models.ForeignKey(Profile,null= True)
       
        def __str__(self):
            return self.design

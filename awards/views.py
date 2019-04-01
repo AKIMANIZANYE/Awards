@@ -1,18 +1,16 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 
-from .models import Project, ProjectsLetterRecipients
+from .models import Project
 from .forms import ProjectsLetterForm, NewProjectForm
-from .email import send_welcome_email
 from django.contrib.auth.decorators import login_required
 
 
 @login_required(login_url = '/accounts/login/')
 def post_today(request):
-	date = dt.date.today()
-	all_projects = Project.all_projects()
-	projects = Project.objects.all()
-	print(projects)
+	all_project = Project.objects.all()
+	
+	print(all_project)
 
 	if request.method == 'POST':
 		form = ProjectsLetterForm(request.POST)
@@ -28,7 +26,7 @@ def post_today(request):
 	else:
 		form = ProjectsLetterForm()
 		form = NewProjectForm()
-	return render(request, 'all-projects/today-projects.html',  {"date":date, "letterForm":form, "ProjectForm":form, "projects":all_projects})
+	return render(request, 'all-projects/today-projects.html',  {"letterForm":form, "ProjectForm":form, "projects":all_project})
 
 
 def past_days_projects(request, past_date):
@@ -78,7 +76,7 @@ def new_project(request):
 			project = form.save(commit = False)
 			project.user = current_user
 			project.save()
-		return redirect('projectsToday')
+		return redirect('post_today')
 
 	else:
 		form = NewProjectForm()
