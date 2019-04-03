@@ -41,7 +41,7 @@ class Project(models.Model):
 
   
    @classmethod
-   def search_by_name(cls,search_term):
+   def search_by_title(cls,search_term):
        projec = cls.objects.filter(title__icontains=search_term)
        return projec
 class Profile(models.Model):
