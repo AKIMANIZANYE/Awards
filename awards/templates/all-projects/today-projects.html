@@ -6,13 +6,13 @@
   style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIxWG7GbI9ESKGcC5xYAjHD0bXy5fYKmq6vEau_0n_uEjq_fEpnQ'); background-repeat: no-repeat; background-size: cover;">
   <div class="row">
     <!-- displaying Photos image -->
-    {%for projects in projects%}
+    {%for image in projects%}
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 20px;">
       <img style=" margin-top: 20px; margin-bottom: 20px; width:300px; height:200px; border-radius: 30px;"
-        src="{{projects.project.url}}" class="img-responsive" alt="Image"> 
+        src="{{image.image.url}}" class="img-responsive" alt="Image"> 
         <div style="color:wheat; font-size: 20px; font-style: italic;">       
           {% autoescape on %}
-          <strong >Description: </strong>{{project.description|safe}}
+          <strong >Description: </strong>{{image.description|safe}}
          {% endautoescape %}
        </div> 
       <!-- <button class="btn btn-danger"  >Comment</button> -->

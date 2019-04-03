@@ -37,11 +37,13 @@
                   </a>
             <ul class="dropdown-menu" role="menu">
               <li>
-                <a href="{%url 'post_today'%}">Instagram</a>
+                <a href="{%url 'post_today'%}">Awards</a>
               </li>
-              
               <li>
-                <a href="{%url 'new-project'%}">upload Image</a>
+                <a href="{% url 'upload_profile'%}">Create Profile</a>
+             </li>
+              <li>
+                <a href="{%url 'new-project'%}">upload   project</a>
               </li>
               <li>
                 <a href="/accounts/password/change">Change Password</a>
