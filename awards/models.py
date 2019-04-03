@@ -42,7 +42,7 @@ class Project(models.Model):
   
    @classmethod
    def search_by_name(cls,search_term):
-       projec = cls.objects.filter(name__icontains=search_term)
+       projec = cls.objects.filter(title__icontains=search_term)
        return projec
 class Profile(models.Model):
    username = models.CharField(default='User',max_length=80)

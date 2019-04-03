@@ -8,12 +8,15 @@
     <!-- displaying Photos image -->
     {%for image in projects%}
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 20px;">
+      <p><strong style="color:wheat; font-size: 20px; font-style: italic;text-align: center;">{{image.title|safe}}</strong></p>
+       
       <img style=" margin-top: 20px; margin-bottom: 20px; width:300px; height:200px; border-radius: 30px;"
         src="{{image.image.url}}" class="img-responsive" alt="Image"> 
         <div style="color:wheat; font-size: 20px; font-style: italic;">       
           {% autoescape on %}
-          <strong >Description: </strong>{{image.description|safe}}
-          <strong >Link: </strong> <a href="{{ image.link|safe }}">{{image.link|safe}}</a>
+         
+          <strong >Description: </strong>{{image.description|safe}}<br>
+          <strong >Link:</strong><a href="{{ image.link|safe }}">{{image.link|safe}}</a>
           <!-- <button class="btn btn-danger" onclick="copyUrl('{{image.id}}-url')">Copy Image Url</button> -->
          
          {% endautoescape %}

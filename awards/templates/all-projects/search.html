@@ -1,29 +1,31 @@
-{%extends 'all-projects/base.html'%} 
+{%extends 'all-projects/base.html'%}
+
 {% block content %}
 <div class="container">
 
   <div class="row">
-    {% if projects%}
-      <h2>Found {{ projects|length }} of searched term {{message}}</h2>
+    {% if images%}
+      <h2>Found {{ images|length }} of searched term {{message}}</h2>
     {% else %}
-      <h2> Found 0 project for the search term {{message}}</h2>
+      <h2> Found 0 images for the search term {{message}}</h2>
     {% endif %}
 
   </div>
 
   <div class="row">
 
-  {% if projects %}
-    {% for image in projects %}
+  {% if images %}
+    {% for image in images %}
       <div class="col-sm-6 col-md-3">
-          <h2 style="color:blueviolet;">{{project.name}}</h2>
-          <img src="{{project.project.url}}"  class="img-responsive" alt="">
-          <strong>Name:</strong> {{project.name}}
-          <br>
-          <strong>User:</strong>{{project.user}}
-          <br>
-          <strong>Description:</strong>{{project.caption}}
-      </div>
+          <strong><h2 style="color:rgb(223, 205, 205); text-align: center;">{{image.title}}</h2></strong>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <img style=" margin-top: 20px; margin-bottom: 20px; width:380px; height:280px; border-radius: 30px;" src="{{image.image.url}}" alt="Image" width='200' length='200'>
+        {% autoescape on %}
+        <strong>Description: </strong>{{image.description|safe}}
+        
+        <strong>Link: </strong><a href="{{image.link|safe}}">{{image.link|safe}}</a>         
+      {% endautoescape %}
+    </div>
     {% endfor %}
   {% endif %}
   </div>
