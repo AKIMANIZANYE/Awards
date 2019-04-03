@@ -15,6 +15,7 @@ urlpatterns=[
 
     url(r'^upload_images/', views.upload_images, name='upload_images'),
     url(r'^upload/profile', views.upload_profile, name='upload_profile'),
+    url(r'^api/merch/$', views.MerchList.as_view()) 
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
