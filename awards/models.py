@@ -51,6 +51,14 @@ class Profile(models.Model):
    contact = models.EmailField(null=True)
 #    Project= models.IntegerField(default=0)
    project = models.ForeignKey(Project,null=True)
+   def __str__(self):
+        return self.username
+
+   def delete_profile(self):
+        self.delete()
+
+   def save_profile(self):
+        self.save() 
 
 
    def __str__(self):

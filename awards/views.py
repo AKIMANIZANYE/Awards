@@ -89,7 +89,7 @@ def upload_profile(request):
             form = ProfileUploadForm(request.POST,request.FILES)
 
             if form.is_valid():
-                requested_profile.profile_pic = form.cleaned_data['profile_image']
+                requested_profile.profile_pic = form.cleaned_data['image']
                 requested_profile.bio = form.cleaned_data['bio']
                 requested_profile.username = form.cleaned_data['username']
                 requested_profile.save_profile()
@@ -101,7 +101,7 @@ def upload_profile(request):
             form = ProfileUploadForm(request.POST,request.FILES)
 
             if form.is_valid():
-                new_profile = Profile(profile_image = form.cleaned_data['profile_image'],bio = form.cleaned_data['bio'],username = form.cleaned_data['username'])
+                new_profile = Profile(image = form.cleaned_data['image'],bio = form.cleaned_data['bio'],username = form.cleaned_data['username'])
                 new_profile.save_profile()
                 return redirect( profile )
         else:
