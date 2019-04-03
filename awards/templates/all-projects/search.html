@@ -4,8 +4,8 @@
 <div class="container">
 
   <div class="row">
-    {% if images%}
-      <h2>Found {{ images|length }} of searched term {{message}}</h2>
+    {% if projects%}
+      <h2>Found {{ projects|length }} of searched term {{message}}</h2>
     {% else %}
       <h2> Found 0 images for the search term {{message}}</h2>
     {% endif %}
@@ -14,14 +14,14 @@
 
   <div class="row">
 
-  {% if images %}
-    {% for image in images %}
+  {% if projects %}
+  {%for image in projects%}
       <div class="col-sm-6 col-md-3">
           <strong><h2 style="color:rgb(223, 205, 205); text-align: center;">{{image.title}}</h2></strong>
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <img style=" margin-top: 20px; margin-bottom: 20px; width:380px; height:280px; border-radius: 30px;" src="{{image.image.url}}" alt="Image" width='200' length='200'>
         {% autoescape on %}
-        <strong>Description: </strong>{{image.description|safe}}
+        <strong>Description:</strong>{{image.description|safe}}
         
         <strong>Link: </strong><a href="{{image.link|safe}}">{{image.link|safe}}</a>         
       {% endautoescape %}

@@ -48,7 +48,8 @@ class Profile(models.Model):
    username = models.CharField(default='User',max_length=80)
    bio = models.CharField(max_length =30)
    image = models.ImageField(upload_to='images/', blank=True)
-   contact = models.EmailField(null=True)
+   contact = models.EmailField( max_length=90,null=True)
+   user = models.ForeignKey(User,null=True)
 #    Project= models.IntegerField(default=0)
    project = models.ForeignKey(Project,null=True)
    def __str__(self):
