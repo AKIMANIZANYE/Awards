@@ -87,6 +87,7 @@ class Rating(models.Model):
        project = models.ForeignKey(Project,null=True,related_name='rating')
        user = models.ForeignKey(User,null=True)
        image = models.ForeignKey(Profile,null= True)
+
       
        def __str__(self):
            return self.design

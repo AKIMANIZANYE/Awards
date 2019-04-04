@@ -149,3 +149,6 @@ def upload_images(request):
         form = ImageForm() 
     return render(request, 'my-awwards/upload_images.html',{"form" : form})
 
+
+	
+
