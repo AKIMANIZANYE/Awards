@@ -1,6 +1,6 @@
 ## project name:Awards
  ## Author: Claudine Akimanizanye 
- <akimanizanye.claudine@gmail.com>, https://github.com/AKIMANIZANYE/Awards.git and link for heruku:https://awardsaki.herokuapp.com/ 
+ <akimanizanye.claudine@gmail.com>, https://github.com/AKIMANIZANYE/Awards.git and link for heruku:https://awardsakimana.herokuapp.com/
  
  Date:   Fri April 1st  15:58:24 2019 +0200
 
@@ -43,7 +43,7 @@ Django
 Boostrap
 
 ## contact
-Emails:akimanizanyeclaudine@gmail.com Phone:098766544 Emails:akimanizanyeclaudine@akilahinstitute.org Repositority:https://github.com/AKIMANIZANYE/Awards.git amd thelink of the heroku :https://awardsaki.herokuapp.com/ 
+Emails:akimanizanyeclaudine@gmail.com Phone:098766544 Emails:akimanizanyeclaudine@akilahinstitute.org Repositority:https://github.com/AKIMANIZANYE/Awards.git amd thelink of the heroku :https://awardsakimana.herokuapp.com/ 
 
 .Permision of reading code     .You are not allowed to edit any file
 .permission of testing website      .You are  not allowed to move  anyfile or folder
